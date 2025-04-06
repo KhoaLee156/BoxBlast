@@ -32,7 +32,7 @@ export async function GET(req) {
     {
       status: 200,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
         "Cache-Control": "no-store",
         "Access-Control-Allow-Origin": "*",
         "X-Warp-Frame": "true"

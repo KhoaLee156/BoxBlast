@@ -3,31 +3,41 @@ export async function GET(req) {
 
   return new Response(
     JSON.stringify({
-      version: "vNext",
-      title: "🎁 BoxBlast – Pick Your Box!",
-      image: `https://${host}/banner.jpg`,
-      buttons: [
+      frames: [
         {
-          label: "🟥 Box 1",
-          action: "post",
-          target: `https://${host}/api/box/1`
-        },
-        {
-          label: "🟩 Box 2",
-          action: "post",
-          target: `https://${host}/api/box/2`
-        },
-        {
-          label: "🟦 Box 3",
-          action: "post",
-          target: `https://${host}/api/box/3`
+          version: "vNext",
+          title: "🎁 BoxBlast – Pick Your Box!",
+          image: `https://${host}/banner.jpg`,
+          buttons: [
+            {
+              label: "🟥 Box 1",
+              action: "post",
+              target: `https://${host}/api/box/1`
+            },
+            {
+              label: "🟩 Box 2",
+              action: "post",
+              target: `https://${host}/api/box/2`
+            },
+            {
+              label: "🟦 Box 3",
+              action: "post",
+              target: `https://${host}/api/box/3`
+            }
+          ],
+          post_url: `https://${host}/api/box`
         }
-      ],
-      post_url: `https://${host}/api/box`
+      ]
     }),
     {
-      headers: { "Content-Type": "application/json" },
-      status: 200
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store",
+        "Access-Control-Allow-Origin": "*",
+        "X-Warp-Frame": "true"
+      }
     }
   );
 }
+

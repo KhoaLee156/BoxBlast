@@ -3,31 +3,27 @@ export async function GET(req) {
 
   return new Response(
     JSON.stringify({
-      frames: [
+      version: "vNext",
+      title: "🎁 BoxBlast – Pick Your Box!",
+      image: `https://${host}/banner.jpg`,
+      buttons: [
         {
-          version: "vNext",
-          title: "🎁 BoxBlast – Pick Your Box!",
-          image: `https://${host}/banner.jpg`,
-          buttons: [
-            {
-              label: "🟥 Box 1",
-              action: "post",
-              target: `https://${host}/api/box/1`
-            },
-            {
-              label: "🟩 Box 2",
-              action: "post",
-              target: `https://${host}/api/box/2`
-            },
-            {
-              label: "🟦 Box 3",
-              action: "post",
-              target: `https://${host}/api/box/3`
-            }
-          ],
-          post_url: `https://${host}/api/box`
+          label: "🟥 Box 1",
+          action: "post",
+          target: `https://${host}/api/box/1`
+        },
+        {
+          label: "🟩 Box 2",
+          action: "post",
+          target: `https://${host}/api/box/2`
+        },
+        {
+          label: "🟦 Box 3",
+          action: "post",
+          target: `https://${host}/api/box/3`
         }
-      ]
+      ],
+      post_url: `https://${host}/api/box`
     }),
     {
       headers: { "Content-Type": "application/json" },

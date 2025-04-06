@@ -1,5 +1,6 @@
 export async function POST(req, { params }) {
   const boxId = params.id;
+
   const rewards = {
     "1": "🎉 You picked Box 1 – You won 10 XP!",
     "2": "✨ Box 2 – Surprise token incoming!",
@@ -8,11 +9,10 @@ export async function POST(req, { params }) {
 
   const message = rewards[boxId] || "❌ Invalid box selected.";
 
-  return new Response(
-    JSON.stringify({ message }),
-    {
-      headers: { "Content-Type": "application/json" },
-      status: 200
-    }
-  );
+  return new Response(JSON.stringify({ message }), {
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    status: 200
+  });
 }
